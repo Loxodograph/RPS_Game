@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <title>Nicks Rock Paper Scissors Game</title>
+    <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        function getRandomInt(max) {
+          return Math.floor(Math.random() * Math.floor(max));
+        }
+            function computerPlay() {
+                let computerChoice = getRandomInt(3);
+                switch(computerChoice) {
+                    case 0 :
+                    return 'rock';
+                    case 1:
+                    return 'paper';
+                    case 2:
+                    return 'scissor';
+                }
+            }
+            function playRound(playerSelection, computerSelection) {
+                console.log(computerSelection);
+                switch(playerSelection) {
+                    case "rock":
+                        if (computerSelection === "rock") {
+                            document.getElementById("result").innerHTML = "Draw! Try Again!";
+                        }else if (computerSelection === "paper") {
+                            document.getElementById("result").innerHTML = "You Lose! Paper Beats Rock! Try Again!";
+                            computerScore++;
+                        } else if (computerSelection === "scissor") {
+                            document.getElementById("result").innerHTML = "You Win! Rock Beats Scissor! Try Again!";
+                            playerScore++;
+                        }
+                    break;
+                    case "paper":
+                    if (computerSelection === "rock") {
+                            document.getElementById("result").innerHTML = "You win! Paper beats Rock!";
+                            playerScore++;
+                        }else if (computerSelection === "paper") {
+                            document.getElementById("result").innerHTML = "Draw! Try Again!";
+                        } else if (computerSelection === "scissor") {
+                            document.getElementById("result").innerHTML = "You Lose! Scissor beats Paper!";
+                            computerScore++;
+                        }
+                    break;
+                    case "scissor":
+                    if (computerSelection === "rock") {
+                            document.getElementById("result").innerHTML = "You Lose! Rock beats Scissor! Try Again!";
+                            computerScore++;
+                        }else if (computerSelection === "paper") {
+                            document.getElementById("result").innerHTML = "You Win! Scissor Beats Paper! Try Again!";
+                            playerScore++;
+                        } else if (computerSelection === "scissor") {0
+                            document.getElementById("result").innerHTML = "Draw! Try Again!";
+                        }
+                    break;
+                    
+                }
+                document.getElementById("playerCounter").innerHTML = playerScore;
+                document.getElementById("computerCounter").innerHTML = computerScore;
+                console.log(computerScore + " This is computer Score");
+            }
+            
+
+
+
+
+    </script>
+</head>
+<body>
+    <header>
+        <section class="scoreCard">
+            <div class="playerContainer">
+                <h1>Your Score</h1>
+            <h1 id="playerCounter">0</h1>
+        </div>
+            <h1>Rock Paper Scissors</h1>
+            <div class="computerContainer">
+                <h1>CPU Score</h1>
+            <h1 id="computerCounter">0</h1>
+        </div>
+        </section>
+    </header>
+    <div class="gameContainer">
+        <h2 id="result">Make A Choice:</h2>
+        <div class="buttonContainer">
+        <button onclick="playRound('rock', computerPlay())">Rock</button>
+        <button onclick="playRound('paper', computerPlay())">Paper</button>
+        <button onclick="playRound('scissor', computerPlay())">Scissor</button>
+    </div>
+    </div>
+</body>
+</html>
