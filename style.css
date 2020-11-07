@@ -30,8 +30,8 @@ body {
     header {
         font-size: 75%;
     }
-    #result {
-        font-size: 75%;
+    h2 {
+        font-size: 90%;
     }
 }
 button {
