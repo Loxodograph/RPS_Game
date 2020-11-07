@@ -30,6 +30,9 @@ body {
     header {
         font-size: 75%;
     }
+    #result {
+        font-size: 75%;
+    }
 }
 button {
     box-shadow: 3px 4px 0px 0px #1564ad;
